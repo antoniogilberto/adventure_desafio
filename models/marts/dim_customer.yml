@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: 'Tabela dimensão de informações dos clientes'
+    columns:
+      - name: customer_sk
+        description: 'SK da tabela dimensão de cliente'
+        tests:
+          - unique
+          - not_null
+      - name: customerid
+        description: 'PK ID do cliente'
+        tests:
+          - unique
+          - not_null
+      - name: customerfullname
+        description: 'Nome completo do cliente, seja pessoa física ou jurídica'
+        tests:
+        - not_null

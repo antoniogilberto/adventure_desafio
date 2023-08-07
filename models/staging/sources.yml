@@ -1,0 +1,140 @@
+version: 2
+
+sources:
+  - name: dev_gilberto
+    tables:
+      - name: address
+        description: 'Tabela de informações de ruas e cidades'
+        columns:
+          - name: addressid 
+            tests:
+              - unique
+              - not_null
+
+      - name: countryregion
+        description: 'Tabela de informações de países e regiões'
+        columns:
+          - name: countryregioncode 
+            tests:
+              - unique
+              - not_null
+
+      - name: creditcard
+        description: 'Tabela de informações de cartões de crédito'
+        columns:
+          - name: creditcardid 
+            tests:
+              - unique
+              - not_null
+
+      - name: customer
+        description: 'Tabela de informações dos clientes'
+        columns:
+          - name: customerid 
+            tests:
+              - unique
+              - not_null
+          - name: personid 
+            tests:
+              - unique
+
+      - name: employee
+        description: 'Tabela de informações de colaboradores'  
+        columns:
+          - name: businessentityid 
+            tests:
+              - unique
+              - not_null
+
+      - name: person
+        description: 'Tabela de informações das pessoas envolvidas (colaboradores, clientes e fornecedores)'
+        columns:
+          - name: businessentityid 
+            tests:
+              - unique
+              - not_null
+
+      - name: product
+        description: 'Tabelas de informações de produtos vendidos'
+        columns:
+          - name: productid 
+            tests:
+              - unique
+              - not_null
+        
+      - name: productcategory
+        description: 'Tabelas de informações das categorias dos produtos vendidos'
+        columns:
+          - name: productcategoryid 
+            tests:
+              - unique
+              - not_null
+
+      - name: productsubcategory
+        description: 'Tabelas de informações das subcategorias dos produtos vendidos'
+        columns:
+          - name: productsubcategoryid 
+            tests:
+              - unique
+              - not_null
+
+      - name: salesorderdetail
+        description: 'Tabela de informações detalhadas dos pedidos, por produto'
+        columns:
+          - name: salesorderdetailid 
+            tests:
+              - unique
+              - not_null
+          - name: salesorderid 
+            tests:
+              - not_null
+
+      - name: salesorderheader
+        description: 'Tabela de informações gerais do pedido'
+        columns:
+          - name: salesorderid
+            tests:
+              - unique
+              - not_null
+          - name: customerid
+            tests:
+              - not_null
+
+      - name: salesorderheadersalesreason
+        description: 'Tabela de informações do motivo da venda'
+        columns:
+          - name: salesorderid
+            tests:
+              - not_null
+
+      - name: salesperson
+        description: 'Tabela de informações do colaborador'
+        columns:
+          - name: businessentityid 
+            tests:
+              - unique
+              - not_null
+
+      - name: salesreason
+        description: 'Tabela de informações dos motivos da compra'
+        columns:
+          - name: salesreasonid 
+            tests:
+              - unique
+              - not_null
+
+      - name: stateprovince
+        description: 'Tabela de informações de estados e províncias'
+        columns:
+          - name: stateprovinceid 
+            tests:
+              - unique
+              - not_null
+
+      - name: store
+        description: 'Tabela de informações de lojas'
+        columns:
+          - name: businessentityid 
+            tests:
+              - unique
+              - not_null

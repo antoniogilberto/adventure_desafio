@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: fct_salesorderdetail
+    description: 'Tabela de informações detalhadas dos pedidos, por produto'
+    columns:
+      - name: salesorderdetail_sk
+        description: 'SK do item por pedido realizado'
+        tests:
+          - unique
+          - not_null
+      - name: product_fk
+        description: 'FK da tabela dimensão de produto'
+        tests:
+          - not_null
+      - name: salesorderdetail_fk
+        description: 'FK da tabela dimensão que relaciona esta fato com a outra'
+        tests:
+          - not_null
+      - name: salesorderdetailid
+        description: 'ID único do item por pedido realizado'
+        tests:
+          - unique
+          - not_null
+      - name: orderqty
+        description: 'Quantidade comprada por produto'
+        tests:
+          - not_null
+      - name: productid
+        description: 'ID do produto comprado'
+        tests:
+          - not_null
+      - name: unitprice
+        description: 'Preço unitário do produto'
+        tests:
+          - not_null
+      - name: unitpricediscount
+        description: 'Desconto unitário do produto'
+        tests:
+          - not_null
+      - name: grossrevenue
+        description: 'Coluna criada com o cálculo do faturamento bruto por item do pedido, que é a multiplicação de preço unitário (unitpricediscount) e quantidade (orderqty)'
+        tests:
+          - not_null
+      - name: discount
+        description: 'Coluna criada com o cálculo do valor descontado por item do pedido, que é a multiplicação multiplicação de preço unitário (unitpricediscount), da quantidade (orderqty) e da taxa de desconto (unitpricediscount)'
+        tests:
+          - not_null
