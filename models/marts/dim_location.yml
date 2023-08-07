@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: dim_location
+    description: 'Tabela dimensão de informações de endereços'
+    columns:
+      - name: shiptoaddress_sk
+        description: 'SK da tabela dimensão do endereço'
+        tests:
+          - unique
+          - not_null
+      - name: shiptoaddressid
+        description: 'PK ID do endereço'
+        tests:
+          - unique
+          - not_null
+      - name: addressline1
+        description: 'Nome da rua do endereço'
+        tests:
+          - not_null
+      - name: city
+        description: 'Nome da cidade do endereço'
+        tests:
+        - not_null
+      - name: postalcode
+        description: 'Número do CEP do endereço'
+        tests:
+        - not_null
+      - name: statename
+        description: 'Nome do estado do endereço'
+        tests:
+        - not_null
+      - name: countryname
+        description: 'Nome do país do endereço'
+        tests:
+        - not_null

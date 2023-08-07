@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_salesreason
+    description: 'Tabela dimensão de informações do motivo de venda'
+    columns:
+      - name: reason_sk
+        description: 'SK da tabela dimensão do motivo de venda'
+        tests:
+          - unique   
+      - name: salesorderid
+        description: 'PK ID do motivo de venda'
+        tests:
+          - unique   
+      - name: reasonname
+        description: 'Nome do motivo de venda. Quando existem mais de um motivo de venda, os valores são agregados'

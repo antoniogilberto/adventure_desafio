@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: dim_product
+    description: 'Tabela dimensão de produtos vendidos'
+    columns:
+      - name: product_sk
+        description: 'SK da tabela dimensão do produto'
+        tests:
+          - unique
+          - not_null
+      - name: productid
+        description: 'PK ID do produto'
+        tests:
+          - unique
+          - not_null
+      - name: productname
+        description: 'Nome do produto'
+        tests:
+          - not_null
+      - name: standardcost
+        description: 'Valor padrão do produto'
+      - name: listprice
+        description: 'Valor de venda do produto'
+      - name: subcategoryname
+        description: 'Nome da categoria do produto'
+      - name: categoryname
+        description: 'Nome da categoria do produto'

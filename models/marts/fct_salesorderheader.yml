@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: fct_salesorderheader
+    description: 'Tabela de informações gerais do pedido'
+    columns:
+      - name: salesorderheader_sk
+        description: 'SK de cada pedido realizado'
+        tests:
+          - unique
+          - not_null
+      - name: customer_fk
+        description: 'FK da tabela dimensão de cliente'
+        tests:
+          - not_null
+      - name: shiptoaddress_fk
+        description: 'FK da tabela dimensão de endereço'
+        tests:
+          - not_null
+      - name: creditcard_fk
+        description: 'FK da tabela dimensão de cartão de crédito'
+      - name: salesorder_fk
+        description: 'FK da tabela dimensão que relaciona esta com a outra tabela fato'
+        tests:
+          - not_null
+      - name: salesorderid
+        description: 'ID única de cada pedido realizado'
+        tests:
+          - unique
+          - not_null
+      - name: orderdate
+        description: 'Data em que o cliente fez o pedido'
+        tests:
+          - not_null
+      - name: shipdate
+        description: 'Data do envio do pedido ao cliente'
+        tests:
+        - not_null
+      - name: orderstatus
+        description: 'Status do pedido, que pode ser: "In_process", "Approved", "Backordered", "Rejected", "Shipped", "Cancelled", "No status"'
+        tests:
+          - not_null
+      - name: customerid
+        description: 'ID do cliente que fez o pedido'
+        tests:
+          - not_null
+      - name: salespersonid
+        description: 'ID do vendedor'
+      - name: billtoaddressid
+        description: 'Endereço de cobrança'
+        tests:
+          - not_null
+      - name: shiptoaddressid
+        description: 'Endereço de entrega do pedido'
+        tests:
+          - not_null
+      - name: shipmethodid
+        description: 'Forma de envio do pedido'
+        tests:
+          - not_null
+      - name: creditcardid
+        description: 'ID do cartão de crédito'
+      - name: subtotal
+        description: 'Faturamento líquido do pedido, que é o faturamento bruto menos descontos'
+        tests:
+          - not_null
+      - name: taxamt
+        description: 'Taxa incidente sobre o pedido'
+        tests:
+          - not_null
+      - name: freight
+        description: 'Frete para envio do pedido'
+        tests:
+          - not_null
+      - name: totaldue
+        description: 'Valor total por pedido, que é a soma do faturamento líquido, da taxa e do frete'
+        tests:
+          - not_null 
